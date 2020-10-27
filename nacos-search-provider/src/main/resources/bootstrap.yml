@@ -1,0 +1,16 @@
+server:
+  port: 8002
+  servlet:
+    context-path: /provider
+spring:
+  application:
+    name: nacos-search-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
