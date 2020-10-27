@@ -9,7 +9,12 @@ spring:
       discovery:
         server-addr: localhost:8848
   application:
-    name: nacos-search-provider
+    name: search-provider
+
+  elasticsearch:
+    rest:
+      uris: 172.20.97.67:9200
+      connection-timeout: 2s
 
 management:
   endpoints:
