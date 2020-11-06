@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: payment-service
+
+server:
+  port: 8002
+  servlet:
+    context-path: /payment
+
+
+management:
+  server:
+    servlet:
+      context-path: /payment/actuator
+
+logging:
+  level:
+    com.fill.springcloud: debug
+

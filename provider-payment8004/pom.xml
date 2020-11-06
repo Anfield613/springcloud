@@ -9,11 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>nacos-search-provider</artifactId>
-
-    <properties>
-        <elasticsearch.version>7.6.2</elasticsearch.version>
-    </properties>
+    <artifactId>provider-payment8004</artifactId>
 
     <dependencies>
         <dependency>
@@ -25,15 +21,15 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <!-- SpringCloud Consul -->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
         </dependency>
-
         <dependency>
-            <groupId>org.elasticsearch</groupId>
-            <artifactId>elasticsearch-core</artifactId>
-            <version>${elasticsearch.version}</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-consul-config</artifactId>
         </dependency>
     </dependencies>
+
 </project>
