@@ -6,11 +6,11 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableDiscoveryClient
 @EnableEurekaClient
-public class PaymentMain8004 {
+@EnableDiscoveryClient
+public class PaymentMain8003 {
 
     public static void main(String[] args) {
-        SpringApplication.run(PaymentMain8004.class, args);
+        SpringApplication.run(PaymentMain8003.class, args);
     }
 }

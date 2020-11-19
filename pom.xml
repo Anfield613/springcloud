@@ -9,9 +9,10 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>provider-payment8002</module>
-        <module>eureka-server8001</module>
+        <module>eureka-server7001</module>
         <module>provider-payment8004</module>
+        <module>provider-payment8003</module>
+        <module>consumer-order8001</module>
     </modules>
 
     <properties>

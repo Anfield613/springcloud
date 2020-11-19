@@ -9,7 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>provider-payment8004</artifactId>
+    <artifactId>provider-payment8003</artifactId>
+
 
     <dependencies>
         <dependency>
@@ -37,5 +38,4 @@
         </dependency>
         -->
     </dependencies>
-
 </project>

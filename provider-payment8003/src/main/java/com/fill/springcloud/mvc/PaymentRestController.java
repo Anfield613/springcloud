@@ -1,6 +1,5 @@
 package com.fill.springcloud.mvc;
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,7 +25,7 @@ public class PaymentRestController {
 
         logger.debug("get payment info , id:{}", id);
 
-        return UUID.randomUUID().toString() + ", id:" + id + ", port:" + port;
+        return UUID.randomUUID().toString() + ", port:" + port;
 
     }
 
