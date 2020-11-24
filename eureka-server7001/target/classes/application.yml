@@ -1,0 +1,15 @@
+server:
+  port: 7001
+# eureka作为服务注册中心时，可以不进行上下文的指定
+#  servlet:
+#    context-path: /eureka
+
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+  instance:
+    hostname: localhost

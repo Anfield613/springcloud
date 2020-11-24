@@ -22,4 +22,10 @@ public class OrderRestController {
     public String getPaymentInfoById(@PathVariable(name = "id") long id) {
         return paymentFeignClient.getPaymentById(id);
     }
+
+    @GetMapping(value = "/payment/hystrix/{id}")
+    public String getPaymentInfoByIdWithHystrix(
+            @PathVariable(name = "id") long id) {
+        return paymentFeignClient.hystrix(id);
+    }
 }
