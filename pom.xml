@@ -14,7 +14,8 @@
         <module>provider-payment8003</module>
         <module>consumer-order8001</module>
         <module>gateway9527</module>
-        <module>config3344</module>
+        <module>config-server3344</module>
+        <module>config-client3355</module>
     </modules>
 
     <properties>
