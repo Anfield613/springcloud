@@ -13,7 +13,8 @@
         <module>provider-payment8004</module>
         <module>provider-payment8003</module>
         <module>consumer-order8001</module>
-        <module>gateway</module>
+        <module>gateway9527</module>
+        <module>config3344</module>
     </modules>
 
     <properties>
