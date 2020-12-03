@@ -5,18 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>fill.springcloud.example</groupId>
-    <artifactId>springcloud</artifactId>
+    <artifactId>springcloud-learning</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>eureka-server7001</module>
-        <module>provider-payment8004</module>
-        <module>provider-payment8003</module>
-        <module>consumer-order8001</module>
-        <module>gateway9527</module>
-        <module>config-server3344</module>
-        <module>config-client3355</module>
-    </modules>
+
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
