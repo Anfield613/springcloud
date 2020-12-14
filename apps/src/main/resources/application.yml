@@ -1,0 +1,29 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /app
+
+
+spring:
+  application:
+    name: app
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+
+#feign:
+#  hystrix:
+#    enabled: true
+
+ribbon:
+  eureka:
+    enabled: true
+
+logging:
+  level:
+    com.fill: debug
+

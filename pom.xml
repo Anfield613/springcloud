@@ -10,7 +10,9 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>eureka-server</module>
-        <module>filestorage-server</module>
+        <module>filestorage-server8001</module>
+        <module>apps</module>
+        <module>filestorage-server8002</module>
     </modules>
 
 
