@@ -22,6 +22,8 @@ eureka:
 ribbon:
   eureka:
     enabled: true
+  ReadTimeout: 2000
+  ConnectionTimeOut: 2000
 
 logging:
   level:

@@ -18,3 +18,4 @@ eureka:
 logging:
   level:
     com.fill.filestorage: debug
+

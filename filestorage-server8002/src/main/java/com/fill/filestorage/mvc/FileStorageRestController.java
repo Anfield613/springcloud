@@ -1,5 +1,7 @@
 package com.fill.filestorage.mvc;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -35,6 +37,27 @@ public class FileStorageRestController {
     public String ping() {
         logger.debug("ping filestorage-server....");
         return "200, port:" + port;
+    }
+
+
+    @GetMapping(value = "/hystrix")
+    @ApiOperation(value = "服务降级熔断的demo方法")
+    @HystrixCommand(fallbackMethod = "hystrix", commandProperties = {
+//        @HystrixProperty(name = "hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds", value = "1000")
+    })
+    public String hystrixDemo() {
+        try {
+            Thread.sleep(2000);
+//            int value = 1/0;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "OK";
+    }
+
+
+    public String hystrix() {
+        return "hystrix....";
     }
 
 

@@ -2,8 +2,10 @@ package com.fill.filestorage;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import springfox.documentation.oas.annotations.EnableOpenApi;
 
 /**
@@ -16,6 +18,7 @@ import springfox.documentation.oas.annotations.EnableOpenApi;
 @EnableEurekaClient
 @EnableDiscoveryClient
 @EnableOpenApi
+@EnableCircuitBreaker
 public class FileStorageServerApplication {
 
     public static void main(String[] args) {

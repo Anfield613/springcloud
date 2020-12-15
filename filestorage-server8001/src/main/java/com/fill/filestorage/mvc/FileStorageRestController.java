@@ -1,5 +1,6 @@
 package com.fill.filestorage.mvc;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -38,4 +39,15 @@ public class FileStorageRestController {
     }
 
 
+    @GetMapping(value = "/hystrix")
+    @ApiOperation(value = "服务降级熔断的demo方法")
+    @HystrixCommand(fallbackMethod = "hystrix")
+    public String hystrixDemo() {
+        throw new RuntimeException("throw runtimeException, hystrix...");
+    }
+
+
+    public String hystrix() {
+        return "hystrix....";
+    }
 }

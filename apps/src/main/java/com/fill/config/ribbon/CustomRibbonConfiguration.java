@@ -10,9 +10,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class CustomRibbonConfiguration {
 
-
-    private final Logger logger = LoggerFactory.getLogger(getClass());
-
     @Bean
     public CustomRibbonRule ribbonRule() {
         return new CustomRibbonRule();
