@@ -4,6 +4,10 @@ server:
 spring:
   application:
     name: filestorage-server
+  cloud:
+    circuitbreaker:
+      hystrix:
+        enabled: true
 eureka:
   client:
     register-with-eureka: true
@@ -18,4 +22,5 @@ eureka:
 logging:
   level:
     com.fill.filestorage: debug
+
 

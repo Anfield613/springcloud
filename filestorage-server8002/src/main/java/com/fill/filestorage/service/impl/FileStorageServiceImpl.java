@@ -1,5 +1,6 @@
 package com.fill.filestorage.service.impl;
 
+import com.fill.filestorage.command.SaveFileToDiskCommand;
 import com.fill.filestorage.service.FileStorageExecutorStrategy;
 import com.fill.filestorage.service.FileStorageService;
 import org.slf4j.Logger;
@@ -33,15 +34,15 @@ public class FileStorageServiceImpl implements FileStorageService, InitializingB
         if (!executorStrategyMap.containsKey(type)) {
             logger.error("不包含对应的存储策略服务，存储策略:{}", type);
         }
-
         String key = systemId + "-" + businessId;
         int code = key.hashCode();
         StopWatch watch = new StopWatch("FileStorageExecutor");
         watch.start("storage");
         FileStorageExecutorStrategy executor = executorStrategyMap.get(type);
-
+        String result = new SaveFileToDiskCommand(executor, code, inputStream).execute();
+        logger.debug("execute result:{}", result);
         watch.stop();
         logger.debug(watch.prettyPrint());
-        return null;
+        return result;
     }
 }
