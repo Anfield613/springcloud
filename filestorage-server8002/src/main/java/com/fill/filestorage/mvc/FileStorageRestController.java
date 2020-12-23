@@ -53,7 +53,7 @@ public class FileStorageRestController {
     }
 
 
-    @PostMapping(value = "/storage/{systemId}/{businessId}")
+    @PostMapping(value = "/storage/{systemId}/{businessId}/{type}")
     @ApiOperation(value = "以流的形式存储文件内容")
     @ApiResponses(value = {
         @ApiResponse(code = 200, message = "以流的形式存储文件内容成功")
@@ -61,10 +61,10 @@ public class FileStorageRestController {
     public String save(
         @PathVariable(value = "systemId") String systemId,
         @PathVariable(value = "businessId") String businessId,
+        @PathVariable(value = "type") String type,
         @RequestParam(value = "inputStream", required = false)InputStream inputStream) {
 
-        fileStorageService.uploadByStream(systemId, businessId, null, inputStream);
-        return "";
+        return fileStorageService.uploadByStream(systemId, businessId, type, inputStream);
     }
 
 

@@ -4,12 +4,13 @@
  */
 package com.fill.filestorage.service.impl;
 
-import com.fill.filestorage.command.SaveFileToDiskCommand;
 import com.fill.filestorage.service.FileStorageExecutorStrategy;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -21,6 +22,7 @@ import java.io.InputStream;
  * @author <a href="mailto:fangzz@smartdot.com.cn">fangzizhong</a>
  * @version 1.0, 2020-12-15
  */
+@ConditionalOnProperty(name = "storage.type.disk", havingValue = "open")
 @Service(value = "disk")
 public class DiskStorageExecutorStrategy implements FileStorageExecutorStrategy, InitializingBean {
 
@@ -31,17 +33,17 @@ public class DiskStorageExecutorStrategy implements FileStorageExecutorStrategy,
 
     }
 
+    @HystrixCommand(fallbackMethod = "fallback")
     @Override
     public String save(int code, InputStream inputStream) {
         String md5 = null;
         try {
+            Thread.sleep(3000);
             md5 = createMd5Code(inputStream);
             logger.debug("create file md5 code:{}", md5);
-        } catch (IOException e) {
+        } catch (InterruptedException | IOException e) {
             e.printStackTrace();
         }
-
-
         return null;
     }
 
@@ -54,5 +56,11 @@ public class DiskStorageExecutorStrategy implements FileStorageExecutorStrategy,
      */
     protected String createMd5Code(InputStream inputStream) throws IOException {
         return DigestUtils.md5Hex(inputStream);
+    }
+
+
+    protected String fallback(int code, InputStream inputStream) {
+        logger.error("store file, code:{}, error....", code);
+        return "error";
     }
 }

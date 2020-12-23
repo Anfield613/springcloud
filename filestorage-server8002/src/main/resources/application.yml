@@ -23,4 +23,39 @@ logging:
   level:
     com.fill.filestorage: debug
 
+storage.type.disk: open
 
+# 配置熔断策略：
+hystrix:
+  command:
+    default:
+      circuitBreaker:
+        # 强制打开熔断器，如果该属性设置为true，强制断路器进⼊打开状态，将会拒绝所有的请求。 默认false关闭的
+        forceOpen: false
+        # 触发熔断错误⽐例阈值，默认值50%
+        errorThresholdPercentage: 30
+        # 熔断后休眠时⻓，默认值5秒
+        sleepWindowInMilliseconds: 10000
+        # 熔断触发最⼩请求次数，默认值是20
+        requestVolumeThreshold: 10
+      execution:
+        isolation:
+          thread:
+            # 熔断超时设置，默认为1秒
+            timeoutInMilliseconds: 4000
+
+    DiskStorageExecutorStrategy#save:
+      circuitBreaker:
+        # 强制打开熔断器，如果该属性设置为true，强制断路器进⼊打开状态，将会拒绝所有的请求。 默认false关闭的
+        forceOpen: false
+        # 触发熔断错误⽐例阈值，默认值50%
+        errorThresholdPercentage: 30
+        # 熔断后休眠时⻓，默认值5秒
+        sleepWindowInMilliseconds: 10000
+        # 熔断触发最⼩请求次数，默认值是20
+        requestVolumeThreshold: 10
+        execution:
+          isolation:
+            thread:
+              # 熔断超时设置，默认为1秒
+              timeoutInMilliseconds: 2000
